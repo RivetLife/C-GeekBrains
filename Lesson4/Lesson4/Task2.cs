@@ -31,18 +31,11 @@ namespace Lesson4
 
         public static int[] MassRead(string fileName)
         {
-            int n = 0;
-            StreamReader sr = new StreamReader(fileName);
-            while (!sr.EndOfStream)
-            {
-                n++;
-                sr.ReadLine();
-            }
-            sr.Close();
+            int n = File.ReadAllLines(fileName).Length;
 
             int[] mass = new int[n];
 
-            sr = new StreamReader(fileName);
+            StreamReader sr = new StreamReader(fileName);
             int i = 0;
             while (!sr.EndOfStream)
             {
